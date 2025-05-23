@@ -1,0 +1,23 @@
+import React from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { Github, Linkedin, Mail } from "lucide-react"; import { motion } from "framer-motion";
+
+const projects = [ { title: "Personal Blog", description: "A static blog built with Next.js and Markdown.", link: "https://yourblog.com", }, { title: "E-commerce Store", description: "Full-featured store with Stripe integration.", link: "https://yourecommerce.com", }, { title: "Portfolio Template", description: "Open-source portfolio starter built with Tailwind CSS.", link: "https://github.com/yourusername/portfolio-template", }, ];
+
+export default function Portfolio() { return ( <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-12"> <motion.div initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12" > <h1 className="text-4xl font-bold mb-2">Hi, I'm Alex 👋</h1> <p className="text-lg text-gray-600"> A passionate full-stack developer crafting beautiful and functional web experiences. </p> <div className="flex justify-center space-x-4 mt-4"> <a href="mailto:alex@example.com"><Mail className="w-5 h-5 text-gray-700 hover:text-black" /></a> <a href="https://github.com/yourusername" target="_blank"><Github className="w-5 h-5 text-gray-700 hover:text-black" /></a> <a href="https://linkedin.com/in/yourusername" target="_blank"><Linkedin className="w-5 h-5 text-gray-700 hover:text-black" /></a> </div> </motion.div>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {projects.map((project, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ scale: 1.05 }}
+        className="transition-transform duration-300"
+      >
+        <Card className="rounded-2xl shadow-lg">
+          <CardContent className="p-6">
+            <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
+            <p className="text-gray-600 mb-4">{project.description}</p>
+            <a href={project.link} target="_blank">
+              <Button>View Project</Button>
+            </a>
+          </CardContent>
+        </Card>
+
