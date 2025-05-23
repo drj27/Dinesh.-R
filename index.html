@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Advanced Portfolio - Dinesh.R</title>
+  <title>BBA Student Portfolio - Dinesh. R</title>
   <style>
     /* Google Fonts - Poppins */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
     :root {
-      --primary-color: #4f46e5;
-      --accent-color: #7c3aed;
+      --primary-color: #1e3a8a; /* navy blue */
+      --accent-color: #2563eb;  /* blue */
       --background-color: #f9fafb;
       --text-color: #111827;
-      --text-light: #6b7280;
+      --text-light: #4b5563; /* darker gray */
       --white: #ffffff;
       --shadow-light: rgba(0, 0, 0, 0.1);
       --max-width: 1200px;
@@ -47,16 +47,19 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       background-color: var(--white);
-      box-shadow: 0 2px 10px var(--shadow-light);
+      box-shadow: 0 2px 12px var(--shadow-light);
       z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
     }
     .nav-container {
       max-width: var(--max-width);
       margin: 0 auto;
+      width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
+      justify-content: flex-start;
     }
     .logo {
       font-weight: 600;
@@ -64,37 +67,6 @@
       color: var(--primary-color);
       letter-spacing: 2px;
       user-select: none;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0; padding: 0;
-    }
-    nav ul li {
-      margin-left: 2rem;
-    }
-    nav ul li:first-child {
-      margin-left: 0;
-    }
-    nav ul li a {
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.5rem 0;
-      display: inline-block;
-      position: relative;
-    }
-    nav ul li a::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -4px;
-      height: 2px;
-      width: 0;
-      background-color: var(--primary-color);
-      transition: width var(--transition-fast);
-    }
-    nav ul li a:hover::after,
-    nav ul li a:focus::after {
-      width: 100%;
     }
 
     main {
@@ -139,25 +111,6 @@
       color: var(--text-light);
       max-width: 480px;
     }
-    #home .btn-resume {
-      background: var(--primary-color);
-      color: var(--white);
-      padding: 0.75rem 1.75rem;
-      font-weight: 600;
-      border-radius: 6px;
-      box-shadow: 0 6px 12px rgba(79, 70, 229, 0.35);
-      border: none;
-      cursor: pointer;
-      transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
-      text-decoration: none;
-      display: inline-block;
-    }
-    #home .btn-resume:hover,
-    #home .btn-resume:focus {
-      background: var(--accent-color);
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
-      outline: none;
-    }
     #home .photo-wrapper {
       flex: 0 1 320px;
       max-width: 320px;
@@ -171,7 +124,7 @@
       justify-content: center;
     }
     #home .photo-wrapper img {
-      width: 90%;
+      width: 88%;
       height: auto;
       border-radius: 50%;
       transition: transform 0.3s ease;
@@ -190,7 +143,7 @@
       text-align: center;
     }
     #about p {
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto;
       font-size: 1.1rem;
       color: var(--text-light);
@@ -213,7 +166,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1.75rem 3rem;
-      max-width: 900px;
+      max-width: 600px;
       margin: 0 auto;
     }
     .skill-card {
@@ -229,13 +182,15 @@
     }
     .skill-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 6px 15px rgba(79, 70, 229, 0.2);
+      box-shadow: 0 6px 15px rgba(30, 58, 138, 0.2);
     }
     .skill-name {
       margin-top: 0.8rem;
       font-weight: 600;
       font-size: 1.1rem;
       color: var(--text-color);
+      text-align: center;
+      word-wrap: break-word;
     }
     .progress-circle {
       position: relative;
@@ -300,7 +255,7 @@
       transition: box-shadow 0.3s ease;
     }
     .project-card:hover {
-      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.3);
+      box-shadow: 0 12px 30px rgba(30, 58, 138, 0.3);
     }
     .project-image {
       width: 100%;
@@ -428,18 +383,6 @@
       #home .photo-wrapper {
         margin: 0 auto;
       }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav ul li {
-        margin-left: 1rem;
-        margin-top: 0.7rem;
-      }
-      nav ul li:first-child {
-        margin-left: 0;
-        margin-top: 0;
-      }
       .skills-grid {
         justify-content: center;
       }
@@ -449,43 +392,53 @@
 <body>
   <header>
     <div class="nav-container">
-      <div class="logo" tabindex="0">YourName</div>
-      <nav aria-label="Primary navigation">
-        <ul>
-          <li><a href="#home" tabindex="0">Home</a></li>
-          <li><a href="#about" tabindex="0">About</a></li>
-          <li><a href="#skills" tabindex="0">Skills</a></li>
-          <li><a href="#portfolio" tabindex="0">Portfolio</a></li>
-          <li><a href="#contact" tabindex="0">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="logo" tabindex="0">Dinesh. R</div>
     </div>
   </header>
 
   <main>
     <section id="home" role="region" aria-label="Introduction">
       <div class="intro-text">
-        <h1 tabindex="0">Hi, I'm Your Name</h1>
-        <h2 tabindex="0">Frontend Developer & Designer</h2>
-        <p tabindex="0">I create modern, responsive, and engaging websites with excellent UI and UX. My passion is turning complex problems into beautiful, intuitive interfaces.</p>
-        <a href="your-resume.pdf" download class="btn-resume" tabindex="0" aria-label="Download Resume">Download Resume</a>
+        <h1 tabindex="0">Hi, I'm Dinesh. R</h1>
+        <h2 tabindex="0">Bachelor of Business Administration Student</h2>
+        <p tabindex="0">Aspiring business professional specialized in management, marketing, and finance. Passionate about creating value and driving growth through strategic planning and leadership.</p>
       </div>
       <div class="photo-wrapper" aria-hidden="true">
-        <img src="https://via.placeholder.com/320" alt="Portrait of Your Name" />
+        <img src="https://via.placeholder.com/320" alt="Portrait of Dinesh. R" />
       </div>
     </section>
 
     <section id="about" role="region" aria-label="About Me">
       <h2 tabindex="0">About Me</h2>
       <p tabindex="0">
-        I'm a passionate frontend developer with expertise in HTML, CSS, JavaScript, and modern frameworks. I love crafting pixel-perfect, performant websites that make users feel valued and engaged. Let's build something amazing together!
+        Currently pursuing my BBA degree with a focus on business strategy, organizational behavior, and financial analysis. Experienced in internship roles involving customer relations, digital marketing, and project coordination. Strong communicator and highly motivated to develop innovative business solutions.
       </p>
     </section>
 
     <section id="skills" role="region" aria-label="Skills">
-      <h2 tabindex="0">Skills</h2>
+      <h2 tabindex="0">Key Skills</h2>
       <div class="skills-grid" aria-live="polite">
-        <div class="skill-card" tabindex="0" aria-label="HTML skill 90 percent">
+        <div class="skill-card" tabindex="0" aria-label="Communication skill 100 percent">
+          <div class="progress-circle" aria-hidden="true">
+            <svg>
+              <circle class="circle-bg" cx="45" cy="45" r="45" />
+              <circle class="circle-progress" cx="45" cy="45" r="45" />
+            </svg>
+            <div class="percent-text">100%</div>
+          </div>
+          <div class="skill-name">Communication</div>
+        </div>
+        <div class="skill-card" tabindex="0" aria-label="Marketing skill 95 percent">
+          <div class="progress-circle" aria-hidden="true">
+            <svg>
+              <circle class="circle-bg" cx="45" cy="45" r="45" />
+              <circle class="circle-progress" cx="45" cy="45" r="45" />
+            </svg>
+            <div class="percent-text">95%</div>
+          </div>
+          <div class="skill-name">Marketing</div>
+        </div>
+        <div class="skill-card" tabindex="0" aria-label="Financial Analysis skill 90 percent">
           <div class="progress-circle" aria-hidden="true">
             <svg>
               <circle class="circle-bg" cx="45" cy="45" r="45" />
@@ -493,84 +446,41 @@
             </svg>
             <div class="percent-text">90%</div>
           </div>
-          <div class="skill-name">HTML</div>
-        </div>
-        <div class="skill-card" tabindex="0" aria-label="CSS skill 85 percent">
-          <div class="progress-circle" aria-hidden="true">
-            <svg>
-              <circle class="circle-bg" cx="45" cy="45" r="45" />
-              <circle class="circle-progress" cx="45" cy="45" r="45" />
-            </svg>
-            <div class="percent-text">85%</div>
-          </div>
-          <div class="skill-name">CSS</div>
-        </div>
-        <div class="skill-card" tabindex="0" aria-label="JavaScript skill 80 percent">
-          <div class="progress-circle" aria-hidden="true">
-            <svg>
-              <circle class="circle-bg" cx="45" cy="45" r="45" />
-              <circle class="circle-progress" cx="45" cy="45" r="45" />
-            </svg>
-            <div class="percent-text">80%</div>
-          </div>
-          <div class="skill-name">JavaScript</div>
-        </div>
-        <div class="skill-card" tabindex="0" aria-label="React skill 75 percent">
-          <div class="progress-circle" aria-hidden="true">
-            <svg>
-              <circle class="circle-bg" cx="45" cy="45" r="45" />
-              <circle class="circle-progress" cx="45" cy="45" r="45" />
-            </svg>
-            <div class="percent-text">75%</div>
-          </div>
-          <div class="skill-name">React</div>
-        </div>
-        <div class="skill-card" tabindex="0" aria-label="UX Design skill 70 percent">
-          <div class="progress-circle" aria-hidden="true">
-            <svg>
-              <circle class="circle-bg" cx="45" cy="45" r="45" />
-              <circle class="circle-progress" cx="45" cy="45" r="45" />
-            </svg>
-            <div class="percent-text">70%</div>
-          </div>
-          <div class="skill-name">UX Design</div>
+          <div class="skill-name">Financial Analysis</div>
         </div>
       </div>
     </section>
 
-    <section id="portfolio" role="region" aria-label="Portfolio Projects">
-      <h2 tabindex="0">Portfolio</h2>
+    <section id="portfolio" role="region" aria-label="Projects">
+      <h2 tabindex="0">Projects & Internships</h2>
       <div class="projects-grid">
-        <article class="project-card" tabindex="0" aria-label="Project One: Responsive website">
-          <div class="project-image" aria-hidden="true">Project One</div>
+        <article class="project-card" tabindex="0" aria-label="Market Research Internship">
+          <div class="project-image" aria-hidden="true">Market Research</div>
           <div class="project-content">
-            <h3 class="project-title">Responsive Website</h3>
-            <p class="project-description">A fully responsive website built with HTML5, CSS3 and Flexbox that adapts seamlessly across devices.</p>
+            <h3 class="project-title">Market Research Internship</h3>
+            <p class="project-description">Conducted consumer behavior analysis and compiled reports that supported marketing strategies for a regional retail company.</p>
             <div class="project-links">
-              <a href="#" target="_blank" rel="noopener" aria-label="GitHub repository for Responsive Website">GitHub</a>
-              <a href="#" target="_blank" rel="noopener" aria-label="Live demo for Responsive Website">Live Demo</a>
+              <a href="#" target="_blank" rel="noopener" aria-label="View documentation for Market Research Internship">Details</a>
             </div>
           </div>
         </article>
-        <article class="project-card" tabindex="0" aria-label="Project Two: E-commerce UI redesign">
-          <div class="project-image" aria-hidden="true">Project Two</div>
+        <article class="project-card" tabindex="0" aria-label="Social Media Marketing Campaign">
+          <div class="project-image" aria-hidden="true">Social Media</div>
           <div class="project-content">
-            <h3 class="project-title">E-commerce UI Redesign</h3>
-            <p class="project-description">Redesigned e-commerce site UI with a focus on clean design and easy navigation.</p>
+            <h3 class="project-title">Social Media Marketing Campaign</h3>
+            <p class="project-description">Designed and executed a digital marketing campaign that increased engagement by 30% over 3 months.</p>
             <div class="project-links">
-              <a href="#" target="_blank" rel="noopener" aria-label="GitHub repository for E-commerce UI Redesign">GitHub</a>
-              <a href="#" target="_blank" rel="noopener" aria-label="Live demo for E-commerce UI Redesign">Live Demo</a>
+              <a href="#" target="_blank" rel="noopener" aria-label="View details for Social Media Marketing Campaign">Details</a>
             </div>
           </div>
         </article>
-        <article class="project-card" tabindex="0" aria-label="Project Three: Portfolio Website">
-          <div class="project-image" aria-hidden="true">Project Three</div>
+        <article class="project-card" tabindex="0" aria-label="Business Plan Development">
+          <div class="project-image" aria-hidden="true">Business Plan</div>
           <div class="project-content">
-            <h3 class="project-title">Portfolio Website</h3>
-            <p class="project-description">Personal portfolio showcasing projects, skills, and contact details with smooth animations.</p>
+            <h3 class="project-title">Business Plan Development</h3>
+            <p class="project-description">Created a comprehensive business plan as part of coursework, including financial projections and market analysis.</p>
             <div class="project-links">
-              <a href="#" target="_blank" rel="noopener" aria-label="GitHub repository for Portfolio Website">GitHub</a>
-              <a href="#" target="_blank" rel="noopener" aria-label="Live demo for Portfolio Website">Live Demo</a>
+              <a href="#" target="_blank" rel="noopener" aria-label="View business plan details">Details</a>
             </div>
           </div>
         </article>
@@ -579,38 +489,32 @@
 
     <section id="contact" role="region" aria-label="Contact Information">
       <h2 tabindex="0">Contact</h2>
-      <p tabindex="0">Feel free to reach out to me on any of the platforms below or send me an email.</p>
+      <p tabindex="0">I welcome connections and opportunities. Reach out to discuss business collaboration or internships.</p>
       <div class="contact-list">
         <div class="contact-item" tabindex="0">
           <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
             <path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm.5-14h3a1 1 0 0 1 0 2h-2v5a1 1 0 0 1-2 0v-5h-1a1 1 0 1 1 0-2h3z"/>
           </svg>
-          <a href="mailto:your.email@example.com" aria-label="Send email to your.email@example.com">your.email@example.com</a>
+          <a href="mailto:dinesh.r.j2004@gmail.com" aria-label="Send email to dinesh.r.j2004@gmail.com">dinesh.r.j2004@gmail.com</a>
         </div>
         <div class="contact-item" tabindex="0">
           <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
             <path d="M12 2a10 10 0 0 0-7.746 16.861c.2.2.5.301.777.245l3.586-.715a.5.5 0 0 1 .561.277l1.66 3.62c.098.213.384.287.6.146a13 13 0 0 0 4.53-5.1 13.117 13.117 0 0 0 1.913-7.176 1 1 0 0 0-1-1z"/>
           </svg>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" aria-label="Visit LinkedIn profile" >LinkedIn</a>
-        </div>
-        <div class="contact-item" tabindex="0">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-            <path d="M22 5.72v12.56a2 2 0 0 1-2.26 2L4.26 17.83a2 2 0 0 1-2-1.98V6.18a2 2 0 0 1 2.26-2l15.48 3.54a2 2 0 0 1 2 2z"/>
-          </svg>
-          <a href="https://github.com/yourgithub" target="_blank" rel="noopener" aria-label="Visit GitHub profile" >GitHub</a>
+          <a href="https://www.linkedin.com/in/dinesh-r-57b651282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Visit LinkedIn profile">LinkedIn</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2024 Your Name. All rights reserved.
+    &copy; 2024 Dinesh. R. All rights reserved.
   </footer>
 
   <script>
     // Animate skill progress circles
     document.addEventListener('DOMContentLoaded', () => {
-      const skillPercents = [90, 85, 80, 75, 70];
+      const skillPercents = [100, 95, 90];
       const circles = document.querySelectorAll('.circle-progress');
       circles.forEach((circle, index) => {
         const radius = circle.r.baseVal.value;
@@ -626,4 +530,3 @@
   </script>
 </body>
 </html>
-
