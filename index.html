@@ -1,533 +1,226 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BBA Student Portfolio - Dinesh. R</title>
-  <style>
-    /* Google Fonts - Poppins */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-    :root {
-      --primary-color: #1e3a8a; /* navy blue */
-      --accent-color: #2563eb;  /* blue */
-      --background-color: #f9fafb;
-      --text-color: #111827;
-      --text-light: #4b5563; /* darker gray */
-      --white: #ffffff;
-      --shadow-light: rgba(0, 0, 0, 0.1);
-      --max-width: 1200px;
-      --transition-fast: 0.3s ease-in-out;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      scroll-behavior: smooth;
-    }
-
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-    a:hover,
-    a:focus {
-      color: var(--accent-color);
-      outline: none;
-    }
-
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background-color: var(--white);
-      box-shadow: 0 2px 12px var(--shadow-light);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
-    .nav-container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .logo {
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: var(--primary-color);
-      letter-spacing: 2px;
-      user-select: none;
-    }
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BBA Portfolio - Black Background & White Text</title>
+<style>
+  /* Reset and base styles */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #bbb;
+    outline: none;
+  }
+  header {
+    position: fixed;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin: 0 auto;
+  }
+  main {
+    max-width: 900px;
+    margin: 5.5rem auto 3rem;
+    padding: 0 1.5rem;
+  }
+  section {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 3rem;
+  }
+  section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  h2 {
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    border-left: 6px solid #fff;
+    padding-left: 0.6rem;
+  }
+  .education {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .education li {
+    margin-bottom: 2rem;
+  }
+  .edu-degree {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .edu-institute {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 0.25rem;
+  }
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+  .skills-list li {
+    background: #222;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 0 5px rgba(255,255,255,0.1);
+    transition: background-color 0.3s ease;
+  }
+  .skills-list li:hover, .skills-list li:focus {
+    background: #444;
+    outline: none;
+  }
+  .contact-info {
+    font-size: 1.1rem;
+    color: #ddd;
+  }
+  .contact-info a {
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+  .profile-image {
+    display: block;
+    width: 140px;
+    height: 140px;
+    border: 3px solid #fff;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    margin: 0 auto 1.5rem;
+  }
+  .about-life {
+    max-width: 600px;
+    margin: 0 auto 0.5rem;
+    font-size: 1.1rem;
+    color: #ddd;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .quote {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+    color: #ccc;
+    font-style: italic;
+    text-align: center;
+    user-select: none;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
     main {
-      padding-top: 80px; /* header height */
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    section {
-      padding: 4rem 0 6rem;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    /* Hero */
-    #home {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-    #home .intro-text {
-      flex: 1 1 360px;
-    }
-    #home .intro-text h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-      line-height: 1.1;
-    }
-    #home .intro-text h2 {
-      font-weight: 400;
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-light);
-    }
-    #home .intro-text p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: var(--text-light);
-      max-width: 480px;
-    }
-    #home .photo-wrapper {
-      flex: 0 1 320px;
-      max-width: 320px;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border-radius: 50%;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #home .photo-wrapper img {
-      width: 88%;
-      height: auto;
-      border-radius: 50%;
-      transition: transform 0.3s ease;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-    }
-    #home .photo-wrapper img:hover {
-      transform: scale(1.05);
-    }
-
-    /* About */
-    #about h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    #about p {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: var(--text-light);
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    /* Skills */
-    #skills {
-      text-align:center;
-    }
-    #skills h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 2.5rem;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.75rem 3rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .skill-card {
-      background: var(--white);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border-radius: 12px;
-      width: 160px;
-      padding: 1.5rem 1rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s ease;
-    }
-    .skill-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 15px rgba(30, 58, 138, 0.2);
-    }
-    .skill-name {
-      margin-top: 0.8rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--text-color);
-      text-align: center;
-      word-wrap: break-word;
-    }
-    .progress-circle {
-      position: relative;
-      width: 90px;
-      height: 90px;
-    }
-    svg {
-      transform: rotate(-90deg);
-      width: 90px;
-      height: 90px;
-    }
-    circle {
-      fill: none;
-      stroke-width: 9;
-      stroke-linecap: round;
-    }
-    .circle-bg {
-      stroke: #e0e7ff;
-    }
-    .circle-progress {
-      stroke: var(--primary-color);
-      stroke-dasharray: 283;
-      stroke-dashoffset: 283;
-      transition: stroke-dashoffset 1s ease-out;
-    }
-    .percent-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--primary-color);
-      user-select: none;
-    }
-
-    /* Portfolio */
-    #portfolio {
-      text-align:center;
-    }
-    #portfolio h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 2.5rem;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      margin: 6rem 1rem 3rem;
       padding: 0 1rem;
     }
-    .project-card {
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.3s ease;
+    h2 {
+      font-size: 1.7rem;
     }
-    .project-card:hover {
-      box-shadow: 0 12px 30px rgba(30, 58, 138, 0.3);
-    }
-    .project-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 600;
-      user-select: none;
-    }
-    .project-content {
-      padding: 1.2rem 1rem 1.5rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-title {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-color);
-    }
-    .project-description {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      flex-grow: 1;
-      margin-bottom: 1rem;
-      line-height: 1.4;
-    }
-    .project-links {
-      margin-top: auto;
-    }
-    .project-links a {
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-right: 1rem;
-      font-size: 0.95rem;
-      transition: color var(--transition-fast);
-    }
-    .project-links a:hover,
-    .project-links a:focus {
-      color: var(--accent-color);
-      outline: none;
-    }
-
-    /* Contact */
-    #contact {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    #contact h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 2rem;
-    }
-    #contact p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-list {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--text-color);
-      font-weight: 500;
+    .about-life {
       font-size: 1rem;
-      user-select: none;
+      padding: 0 0.5rem;
     }
-    .contact-item svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--primary-color);
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-    }
-    .contact-item a {
-      color: var(--primary-color);
-      font-weight: 600;
-      transition: color var(--transition-fast);
-    }
-    .contact-item a:hover,
-    .contact-item a:focus {
-      color: var(--accent-color);
-      outline: none;
-    }
-
-    /* Footer */
-    footer {
-      padding: 2rem 1rem;
-      background-color: var(--white);
-      text-align: center;
-      color: var(--text-light);
+    .quote {
       font-size: 0.9rem;
-      user-select: none;
+      padding: 0 0.5rem;
     }
-
-    /* Responsive */
-
-    @media (max-width: 768px) {
-      #home {
-        flex-direction: column;
-        text-align: center;
-        padding-bottom: 3rem;
-      }
-      #home .intro-text {
-        flex: none;
-        max-width: 100%;
-      }
-      #home .photo-wrapper {
-        margin: 0 auto;
-      }
-      .skills-grid {
-        justify-content: center;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="nav-container">
-      <div class="logo" tabindex="0">Dinesh. R</div>
+<header>
+  <h1>DINESH. R</h1>
+</header>
+
+<main>
+  <img class="profile-image" src="1000068630.png" alt="Profile image of DINESH. R" />
+  
+  <p class="about-life">
+    Life is a journey of constant learning and growth. I believe in embracing every challenge with passion and resilience, nurturing my skills and knowledge to create a positive impact on the world around me.
+  </p>
+  
+  <p class="quote">"Today's learner are tomorrow's leader"</p>
+  
+  <section id="education" tabindex="0">
+    <h2>Education</h2>
+    <ul class="education" aria-label="Education history">
+      <li>
+        <div class="edu-degree">Bachelor of Business Administration (BBA)</div>
+        <div class="edu-institute">Charans degree college</div>
+        <div class="edu-duration">2023 - 2026</div>
+      </li>
+      <li>
+        <div class="edu-degree">School Education</div>
+        <div class="edu-institute">K. R. L. S patel rama reddy english high school</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills" tabindex="0">
+    <h2>Skills</h2>
+    <ul class="skills-list" aria-label="List of skills">
+      <li>Business Strategy</li>
+      <li>Marketing Analysis</li>
+      <li>Financial Reporting</li>
+      <li>Leadership</li>
+      <li>Microsoft Excel</li>
+      <li>Communication</li>
+      <li>Body Language Analysis</li>
+      <li>Project Management</li>
+      <li>Mentor</li>
+    </ul>
+  </section>
+
+  <section id="contact" tabindex="0">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:dinesh.r.j2004@gmail.com" aria-label="Email Dinesh R">dinesh.r.j2004@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/dinesh-r-57b651282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Dinesh R LinkedIn profile">linkedin.com/in/dinesh-r-57b651282</a></p>
     </div>
-  </header>
+  </section>
+</main>
 
-  <main>
-    <section id="home" role="region" aria-label="Introduction">
-      <div class="intro-text">
-        <h1 tabindex="0">Hi, I'm Dinesh. R</h1>
-        <h2 tabindex="0">Bachelor of Business Administration Student</h2>
-        <p tabindex="0">Aspiring business professional specialized in management, marketing, and finance. Passionate about creating value and driving growth through strategic planning and leadership.</p>
-      </div>
-      <div class="photo-wrapper" aria-hidden="true">
-        <img src="1000068630.png" alt="Portrait of Dinesh. R" />
-      </div>
-    </section>
-
-    <section id="about" role="region" aria-label="About Me">
-      <h2 tabindex="0">About Me</h2>
-      <p tabindex="0">
-        Currently pursuing my BBA degree with a focus on business strategy, organizational behavior, and financial analysis. Experienced in internship roles involving customer relations, digital marketing, and project coordination. Strong communicator and highly motivated to develop innovative business solutions.
-      </p>
-    </section>
-
-    <section id="skills" role="region" aria-label="Skills">
-      <h2 tabindex="0">Key Skills</h2>
-      <div class="skills-grid" aria-live="polite">
-        <div class="skill-card" tabindex="0" aria-label="Communication skill 100 percent">
-          <div class="progress-circle" aria-hidden="true">
-            <svg>
-              <circle class="circle-bg" cx="45" cy="45" r="45" />
-              <circle class="circle-progress" cx="45" cy="45" r="45" />
-            </svg>
-            <div class="percent-text">100%</div>
-          </div>
-          <div class="skill-name">Communication</div>
-        </div>
-        <div class="skill-card" tabindex="0" aria-label="Marketing skill 95 percent">
-          <div class="progress-circle" aria-hidden="true">
-            <svg>
-              <circle class="circle-bg" cx="45" cy="45" r="45" />
-              <circle class="circle-progress" cx="45" cy="45" r="45" />
-            </svg>
-            <div class="percent-text">95%</div>
-          </div>
-          <div class="skill-name">Marketing</div>
-        </div>
-        <div class="skill-card" tabindex="0" aria-label="Financial Analysis skill 90 percent">
-          <div class="progress-circle" aria-hidden="true">
-            <svg>
-              <circle class="circle-bg" cx="45" cy="45" r="45" />
-              <circle class="circle-progress" cx="45" cy="45" r="45" />
-            </svg>
-            <div class="percent-text">90%</div>
-          </div>
-          <div class="skill-name">Financial Analysis</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio" role="region" aria-label="Projects">
-      <h2 tabindex="0">Projects & Internships</h2>
-      <div class="projects-grid">
-        <article class="project-card" tabindex="0" aria-label="Market Research Internship">
-          <div class="project-image" aria-hidden="true">Market Research</div>
-          <div class="project-content">
-            <h3 class="project-title">Market Research Internship</h3>
-            <p class="project-description">Conducted consumer behavior analysis and compiled reports that supported marketing strategies for a regional retail company.</p>
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noopener" aria-label="View documentation for Market Research Internship">Details</a>
-            </div>
-          </div>
-        </article>
-        <article class="project-card" tabindex="0" aria-label="Social Media Marketing Campaign">
-          <div class="project-image" aria-hidden="true">Social Media</div>
-          <div class="project-content">
-            <h3 class="project-title">Social Media Marketing Campaign</h3>
-            <p class="project-description">Designed and executed a digital marketing campaign that increased engagement by 30% over 3 months.</p>
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noopener" aria-label="View details for Social Media Marketing Campaign">Details</a>
-            </div>
-          </div>
-        </article>
-        <article class="project-card" tabindex="0" aria-label="Business Plan Development">
-          <div class="project-image" aria-hidden="true">Business Plan</div>
-          <div class="project-content">
-            <h3 class="project-title">Business Plan Development</h3>
-            <p class="project-description">Created a comprehensive business plan as part of coursework, including financial projections and market analysis.</p>
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noopener" aria-label="View business plan details">Details</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" role="region" aria-label="Contact Information">
-      <h2 tabindex="0">Contact</h2>
-      <p tabindex="0">I welcome connections and opportunities. Reach out to discuss business collaboration or internships.</p>
-      <div class="contact-list">
-        <div class="contact-item" tabindex="0">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-            <path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm.5-14h3a1 1 0 0 1 0 2h-2v5a1 1 0 0 1-2 0v-5h-1a1 1 0 1 1 0-2h3z"/>
-          </svg>
-          <a href="mailto:dinesh.r.j2004@gmail.com" aria-label="Send email to dinesh.r.j2004@gmail.com">dinesh.r.j2004@gmail.com</a>
-        </div>
-        <div class="contact-item" tabindex="0">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 0 0-7.746 16.861c.2.2.5.301.777.245l3.586-.715a.5.5 0 0 1 .561.277l1.66 3.62c.098.213.384.287.6.146a13 13 0 0 0 4.53-5.1 13.117 13.117 0 0 0 1.913-7.176 1 1 0 0 0-1-1z"/>
-          </svg>
-          <a href="https://www.linkedin.com/in/dinesh-r-57b651282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Visit LinkedIn profile">LinkedIn</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2024 Dinesh. R. All rights reserved.
-  </footer>
-
-  <script>
-    // Animate skill progress circles
-    document.addEventListener('DOMContentLoaded', () => {
-      const skillPercents = [100, 95, 90];
-      const circles = document.querySelectorAll('.circle-progress');
-      circles.forEach((circle, index) => {
-        const radius = circle.r.baseVal.value;
-        const circumference = 2 * Math.PI * radius;
-        const percent = skillPercents[index];
-        const offset = circumference - (percent / 100 * circumference);
-        circle.style.strokeDasharray = circumference;
-        setTimeout(() => {
-          circle.style.strokeDashoffset = offset;
-        }, 200 + index * 150);
-      });
-    });
-  </script>
+<footer>
+  <p>© 2024 DINESH. R. All rights reserved.</p>
+</footer>
 </body>
 </html>
