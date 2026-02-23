@@ -333,6 +333,42 @@
             letter-spacing: 2px;
             font-weight: 700;
         }
+
+        .search-bar-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        #searchInputHome {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.1rem;
+            font-family: 'Times New Roman', Times, serif;
+            background: #2b2b2b;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            outline: none;
+            letter-spacing: 0.5px;
+            display: block;
+        }
+
+        #searchInputHome::placeholder {
+            color: #aaaaaa;
+            font-style: italic;
+        }
+
+        #searchInputHome:focus {
+            border-color: #ffffff;
+            background: #333333;
+        }
+
+        .search-results-count {
+            margin-top: 0.7rem;
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -351,9 +387,21 @@
 
     <main class="container">
         <section id="home" class="section active">
+            <div class="content-block" style="margin-top: 1.5rem;">
+                <h2>Search the Collection</h2>
+                <div class="search-bar-wrapper">
+                    <input type="text" id="searchInputHome" placeholder="Search by title, author, or category..." autocomplete="off" />
+                    <div class="search-results-count" id="searchCountHome"></div>
+                </div>
+                <div class="books-grid" id="searchGridHome"></div>
+                <div id="noResultsHome" style="display:none;">
+                    <div class="text-content"><p>No books found. Try a different keyword.</p></div>
+                </div>
+            </div>
+
             <div class="stats">
                 <div class="stat-card">
-                    <div class="stat-number">18</div>
+                    <div class="stat-number">20</div>
                     <div class="stat-label">Books</div>
                 </div>
                 <div class="stat-card">
@@ -513,6 +561,20 @@
                     <div class="book-description">Understanding manipulation tactics, mind control techniques, and psychological influence.</div>
                     <span class="category-tag">Psychology</span>
                 </div>
+
+                <div class="book-card" data-category="self-help">
+                    <h3>The Secret</h3>
+                    <div class="book-meta">Rhonda Byrne</div>
+                    <div class="book-description">A worldwide phenomenon that reveals the great secret of the universe — the law of attraction — and how to harness it to manifest health, wealth, happiness, and your deepest desires.</div>
+                    <span class="category-tag">Self-Help</span>
+                </div>
+
+                <div class="book-card" data-category="finance">
+                    <h3>Rich Dad Poor Dad</h3>
+                    <div class="book-meta">Robert T. Kiyosaki</div>
+                    <div class="book-description">What the rich teach their kids about money that the poor and middle class do not — a paradigm-shifting guide to financial independence through assets, investing, and entrepreneurial thinking.</div>
+                    <span class="category-tag">Finance</span>
+                </div>
             </div>
         </section>
 
@@ -531,6 +593,18 @@
                     <div class="research-meta">2023 | Ongoing</div>
                     <p>Comprehensive study of behavioral patterns in children, analyzing developmental stages, social interactions, and psychological factors that influence child behavior and growth.</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="search" class="section">
+            <h2>Search the Collection</h2>
+            <div class="search-bar-wrapper">
+                <input type="text" id="searchInput" placeholder="Search by title, author, or category..." autocomplete="off" />
+                <div class="search-results-count" id="searchCount"></div>
+            </div>
+            <div class="books-grid" id="searchGrid"></div>
+            <div id="noResults" style="display:none;">
+                <div class="text-content"><p>No books found. Try a different keyword.</p></div>
             </div>
         </section>
 
@@ -571,16 +645,143 @@
             btn.addEventListener('click', () => {
                 const targetSection = btn.dataset.section;
                 
-                // Update nav active state
                 navBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-                // Show target section
                 sections.forEach(section => {
                     section.classList.remove('active');
                 });
                 document.getElementById(targetSection).classList.add('active');
+                if (targetSection === 'search') {
+                    setTimeout(() => document.getElementById('searchInput').focus(), 100);
+                }
             });
+        });
+
+        // Book data for search
+        const allBooks = [
+            { title: "Mahabharat", author: "Ancient Indian Epic", description: "The great Indian epic exploring dharma, karma, and the complexities of human nature through the greatest war ever fought.", category: "Philosophy" },
+            { title: "Atomic Habits", author: "James Clear", description: "Tiny changes, remarkable results. An easy and proven way to build good habits and break bad ones.", category: "Self-Help" },
+            { title: "Don't Believe Everything You Think", author: "Joseph Nguyen", description: "Why your thinking is the beginning and end of suffering, and how to free yourself from destructive thought patterns.", category: "Psychology" },
+            { title: "How to Win Friends & Influence People", author: "Dale Carnegie", description: "The timeless classic on human relations, teaching fundamental techniques for handling people and becoming a better leader.", category: "Self-Help" },
+            { title: "The Psychology of Money", author: "Morgan Housel", description: "Timeless lessons on wealth, greed, and happiness, exploring how people think about money and make financial decisions.", category: "Finance" },
+            { title: "Get Epic Shit Done", author: "Ankur Warikoo", description: "Practical strategies for productivity and achieving your goals through effective action and mindset shifts.", category: "Self-Help" },
+            { title: "The Two Kingdoms", author: "Lim Koi", description: "Exploring the dual nature of existence and the balance between material and spiritual realms.", category: "Spirituality" },
+            { title: "The A to Z of Karma", author: "AIR", description: "A comprehensive guide to understanding the laws of karma and their impact on our lives and destiny.", category: "Spirituality" },
+            { title: "The Commandments of Detached Attachment", author: "AIR", description: "Learning the art of being present and engaged while maintaining spiritual freedom and emotional balance.", category: "Spirituality" },
+            { title: "God is Not God, God is SIP", author: "AIR", description: "Challenging conventional beliefs about divinity and exploring alternative perspectives on spirituality and consciousness.", category: "Spirituality" },
+            { title: "Face Reading", author: "Richard Webster", description: "The ancient art of physiognomy - understanding personality, character, and emotions through facial features.", category: "Psychology" },
+            { title: "The Art of Logical Thinking", author: "William Walker Atkinson", description: "Mastering the principles of reasoning, analysis, and research through systematic logical thinking methods.", category: "Psychology" },
+            { title: "How to Read a Person Like a Book", author: "Gerard I. Nierenberg", description: "Decoding body language and non-verbal communication to understand what people are really thinking and feeling.", category: "Psychology" },
+            { title: "Body Language", author: "Allan Pease", description: "Decoding non-verbal communication and mastering the art of reading people through their gestures and expressions.", category: "Psychology" },
+            { title: "Think Like a Monk", author: "Jay Shetty", description: "Ancient wisdom for modern living - finding purpose, letting go, and living with intention.", category: "Spirituality" },
+            { title: "Time Management", author: "Sudhir Dixit", description: "Practical strategies for effective time utilization and productivity enhancement.", category: "Management" },
+            { title: "Dark Psychology Secrets", author: "Amy Brown", description: "Understanding manipulation tactics, mind control techniques, and psychological influence.", category: "Psychology" },
+            { title: "The Secret", author: "Rhonda Byrne", description: "A worldwide phenomenon that reveals the great secret of the universe — the law of attraction — and how to harness it to manifest health, wealth, happiness, and your deepest desires.", category: "Self-Help" },
+            { title: "Rich Dad Poor Dad", author: "Robert T. Kiyosaki", description: "What the rich teach their kids about money that the poor and middle class do not — a paradigm-shifting guide to financial independence through assets, investing, and entrepreneurial thinking.", category: "Finance" },
+        ];
+
+        function renderSearchResults(books) {
+            const grid = document.getElementById('searchGrid');
+            const count = document.getElementById('searchCount');
+            const noResults = document.getElementById('noResults');
+            grid.innerHTML = '';
+            if (books.length === 0) {
+                noResults.style.display = 'block';
+                count.textContent = '';
+            } else {
+                noResults.style.display = 'none';
+                count.textContent = `${books.length} book${books.length !== 1 ? 's' : ''} found`;
+                books.forEach(book => {
+                    grid.innerHTML += `
+                        <div class="book-card">
+                            <h3>${book.title}</h3>
+                            <div class="book-meta">${book.author}</div>
+                            <div class="book-description">${book.description}</div>
+                            <span class="category-tag">${book.category}</span>
+                        </div>`;
+                });
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const query = this.value.trim().toLowerCase();
+            if (query === '') {
+                document.getElementById('searchGrid').innerHTML = '';
+                document.getElementById('searchCount').textContent = '';
+                document.getElementById('noResults').style.display = 'none';
+                return;
+            }
+            const results = allBooks.filter(b =>
+                b.title.toLowerCase().includes(query) ||
+                b.author.toLowerCase().includes(query) ||
+                b.category.toLowerCase().includes(query) ||
+                b.description.toLowerCase().includes(query)
+            );
+            renderSearchResults(results);
+        });
+
+        // Home page search
+        const allResearch = [
+            { title: "Ghost Research 2022", year: "2022", status: "Confidential", description: "Investigation into paranormal phenomena and unexplained activities documented across multiple locations. Analyzing patterns, electromagnetic disturbances, and anomalous recordings using advanced detection equipment and data analysis techniques.", classified: true },
+            { title: "Children Behavioral (CB-02)", year: "2023", status: "Ongoing", description: "Comprehensive study of behavioral patterns in children, analyzing developmental stages, social interactions, and psychological factors that influence child behavior and growth.", classified: false },
+        ];
+
+        document.getElementById('searchInputHome').addEventListener('input', function () {
+            const query = this.value.trim().toLowerCase();
+            const grid = document.getElementById('searchGridHome');
+            const count = document.getElementById('searchCountHome');
+            const noResults = document.getElementById('noResultsHome');
+            grid.innerHTML = '';
+            if (query === '') {
+                count.textContent = '';
+                noResults.style.display = 'none';
+                return;
+            }
+
+            const bookResults = allBooks.filter(b =>
+                b.title.toLowerCase().includes(query) ||
+                b.author.toLowerCase().includes(query) ||
+                b.category.toLowerCase().includes(query) ||
+                b.description.toLowerCase().includes(query)
+            );
+
+            const researchResults = allResearch.filter(r =>
+                r.title.toLowerCase().includes(query) ||
+                r.status.toLowerCase().includes(query) ||
+                r.description.toLowerCase().includes(query) ||
+                r.year.toLowerCase().includes(query)
+            );
+
+            const total = bookResults.length + researchResults.length;
+
+            if (total === 0) {
+                noResults.style.display = 'block';
+                count.textContent = '';
+            } else {
+                noResults.style.display = 'none';
+                count.textContent = `${total} result${total !== 1 ? 's' : ''} found`;
+
+                bookResults.forEach(book => {
+                    grid.innerHTML += `
+                        <div class="book-card">
+                            <h3>${book.title}</h3>
+                            <div class="book-meta">${book.author}</div>
+                            <div class="book-description">${book.description}</div>
+                            <span class="category-tag">${book.category}</span>
+                        </div>`;
+                });
+
+                researchResults.forEach(r => {
+                    grid.innerHTML += `
+                        <div class="book-card" style="border-left: 4px solid #ffffff;">
+                            <h3>${r.title}${r.classified ? ' <span style="background:#ff0000;color:#fff;padding:0.2rem 0.6rem;font-size:0.7rem;font-family:Times New Roman,serif;letter-spacing:1px;font-weight:700;text-transform:uppercase;margin-left:0.5rem;">Classified</span>' : ''}</h3>
+                            <div class="book-meta">${r.year} | ${r.status}</div>
+                            <div class="book-description">${r.description}</div>
+                            <span class="category-tag">Research</span>
+                        </div>`;
+                });
+            }
         });
 
         // Book filter functionality
