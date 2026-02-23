@@ -1,234 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>BBA Portfolio - Black Background & White Text</title>
-<style>
-  /* Reset and base styles */
-  * {
-    box-sizing: border-box;
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000;
-    color: #fff;
-    line-height: 1.6;
-    font-size: 16px;
-  }
-  a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover, a:focus {
-    color: #bbb;
-    outline: none;
-  }
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #111;
-    color: #fff;
-    padding: 1rem 1.5rem 0 1.5rem; /* Removed top padding to start at very top */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(255,255,255,0.1);
-    box-sizing: border-box;
-    height: 3.5rem;
-  }
-  header h1 {
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin: 0;
-  }
-  main {
-    max-width: 900px;
-    margin: 3.5rem auto 3rem; /* margin-top equal to header height to avoid overlap */
-    padding: 0 1.5rem;
-  }
-  section {
-    margin-bottom: 4rem;
-    border-bottom: 1px solid #333;
-    padding-bottom: 3rem;
-  }
-  section:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  h2 {
-    font-size: 2rem;
-    letter-spacing: 0.05em;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-    border-left: 6px solid #fff;
-    padding-left: 0.6rem;
-  }
-  .education {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .education li {
-    margin-bottom: 2rem;
-  }
-  .edu-degree {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-  }
-  .edu-institute {
-    font-style: italic;
-    color: #aaa;
-    margin-bottom: 0.25rem;
-  }
-  .skills-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.5rem;
-  }
-  .skills-list li {
-    background: #222;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 0 5px rgba(255,255,255,0.1);
-    transition: background-color 0.3s ease;
-  }
-  .skills-list li:hover, .skills-list li:focus {
-    background: #444;
-    outline: none;
-  }
-  .contact-info {
-    font-size: 1.1rem;
-    color: #ddd;
-  }
-  .contact-info a {
-    display: inline-block;
-    margin-top: 0.5rem;
-  }
-  .profile-image {
-    display: block;
-    width: 140px;
-    height: 140px;
-    border: 3px solid #fff;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    margin: 0 auto 1.5rem;
-  }
-  .about-life {
-    max-width: 600px;
-    margin: 0 auto 0.5rem;
-    font-size: 1.1rem;
-    color: #ddd;
-    text-align: center;
-    line-height: 1.5;
-  }
-  .quote {
-    max-width: 600px;
-    margin: 0 auto 3rem;
-    font-size: 1rem;
-    color: #ccc;
-    font-style: italic;
-    text-align: center;
-    user-select: none;
-  }
-  footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.9rem;
-    color: #666;
-  }
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    main {
-      margin: 3.5rem 1rem 3rem;
-      padding: 0 1rem;
-    }
-    h2 {
-      font-size: 1.7rem;
-    }
-    .about-life {
-      font-size: 1rem;
-      padding: 0 0.5rem;
-    }
-    .quote {
-      font-size: 0.9rem;
-      padding: 0 0.5rem;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Collection and Research</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #2b2b2b;
+            color: #ffffff;
+            padding: 2rem 0;
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .tagline {
+            color: #ffffff;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        nav {
+            margin-top: 1.5rem;
+            border-top: 1px dashed #ffffff;
+            padding-top: 1rem;
+        }
+
+        nav button {
+            background: transparent;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            padding: 0.6rem 1.2rem;
+            font-family: 'Times New Roman', Times, serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav button:hover {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        nav button.active {
+            background: #ffffff;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        main {
+            min-height: calc(100vh - 200px);
+            padding: 2.5rem 0;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: #2b2b2b;
+            border: 2px solid #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .stat-label {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .book-card {
+            background: #2b2b2b;
+            border: 2px solid #666666;
+            padding: 1.5rem;
+        }
+
+        .book-card:hover {
+            border-color: #ffffff;
+        }
+
+        .book-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .book-meta {
+            color: #ffffff;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .book-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.75rem;
+            margin-top: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .research-item {
+            background: #2b2b2b;
+            border-left: 4px solid #ffffff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-item h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .research-meta {
+            color: #ffffff;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .research-item p {
+            line-height: 1.7;
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .filter-buttons {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-btn {
+            background: #2b2b2b;
+            border: 1px solid #666666;
+            color: #e0e0e0;
+            padding: 0.6rem 1.1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ffffff;
+            color: #1a1a1a;
+            border-color: #ffffff;
+            font-weight: 700;
+        }
+
+        .text-content {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            background: #2b2b2b;
+            padding: 1.5rem;
+            border-left: 4px solid #ffffff;
+        }
+
+        .text-content p {
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        footer {
+            background: #2b2b2b;
+            color: #e0e0e0;
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 3px solid #ffcc00;
+            font-size: 0.9rem;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .intro-text {
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            background: #2b2b2b;
+            padding: 1.5rem;
+            border-left: 4px solid #ffffff;
+        }
+
+        .intro-text p {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .ghost-tag {
+            display: inline-block;
+            background: #ff0000;
+            color: #ffffff;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.75rem;
+            margin-left: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2rem 0;
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .quote-block {
+            background: #2b2b2b;
+            border: 2px solid #ffffff;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #ffffff;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .quote-author {
+            font-size: 0.95rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
-<header>
-  <h1>DINESH. R</h1>
-</header>
+    <header>
+        <div class="container">
+            <h1>The Legacy of Books Collection and Research</h1>
+            <p class="tagline">By Dinesh. R. J</p>
+            <nav>
+                <button class="nav-btn active" data-section="home">Home</button>
+                <button class="nav-btn" data-section="collection">Collection</button>
+                <button class="nav-btn" data-section="research">Research</button>
+                <button class="nav-btn" data-section="about">About</button>
+            </nav>
+        </div>
+    </header>
 
-<main>
-  <img class="profile-image" src="1000068630.png" alt="Profile image of DINESH. R" />
-  
-  <p class="about-life">
-    Life is a journey of constant learning and growth. I believe in embracing every challenge with passion and resilience, nurturing my skills and knowledge to create a positive impact on the world around me.
-  </p>
-  
-  <p class="quote">"Today's learner are tomorrow's leader"</p>
-  
-  <section id="education" tabindex="0">
-    <h2>Education</h2>
-    <ul class="education" aria-label="Education history">
-      <li>
-        <div class="edu-degree">Bachelor of Business Administration (BBA)</div>
-        <div class="edu-institute">Charans degree college</div>
-        <div class="edu-duration">2023 - 2026</div>
-      </li>
-      <li>
-        <div class="edu-degree">School Education</div>
-        <div class="edu-institute">K. R. L. S patel rama reddy english high school</div>
-      </li>
-    </ul>
-  </section>
+    <main class="container">
+        <section id="home" class="section active">
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Books</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Research</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+            </div>
 
-  <section id="skills" tabindex="0">
-    <h2>Skills</h2>
-    <ul class="skills-list" aria-label="List of skills">
-      <li>Business Strategy</li>
-      <li>Marketing Analysis</li>
-      <li>Financial Reporting</li>
-      <li>Leadership</li>
-      <li>Microsoft Excel</li>
-      <li>Communication</li>
-      <li>Body Language Analysis</li>
-      <li>Project Management</li>
-      <li>Mentor</li>
-    </ul>
-  </section>
+            <div class="content-block">
+                <h2>Prologue</h2>
+                <div class="intro-text">
+                    <p>This research and books collection, started in 2016, has given me immense wisdom and knowledge through all my gathered materials. Personally, it has helped me build my character and deepen my understanding of life. These resources continue to shape my perspective, fostering personal growth and intellectual maturity.</p>
+                </div>
+            </div>
 
-  <section id="contact" tabindex="0">
-    <h2>Contact</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:dinesh.r.j2004@gmail.com" aria-label="Email Dinesh R">dinesh.r.j2004@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/dinesh-r-57b651282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="Dinesh R LinkedIn profile">linkedin.com/in/dinesh-r-57b651282</a></p>
-    </div>
-  </section>
-</main>
+            <div class="content-block">
+                <div class="quote-block">
+                    <p class="quote-text">"I believe that books will never disappear. It is impossible that will happen."</p>
+                    <p class="quote-author">— Jorge Luis Borges</p>
+                </div>
+            </div>
+        </section>
 
-<footer>
-  <p>© 2024 DINESH. R. All rights reserved.</p>
-</footer>
+        <section id="collection" class="section">
+            <h2>Book Collection</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="philosophy">Philosophy</button>
+                <button class="filter-btn" data-filter="psychology">Psychology</button>
+                <button class="filter-btn" data-filter="management">Management</button>
+                <button class="filter-btn" data-filter="spirituality">Spirituality</button>
+                <button class="filter-btn" data-filter="self-help">Self-Help</button>
+                <button class="filter-btn" data-filter="finance">Finance</button>
+            </div>
+
+            <div class="books-grid" id="booksGrid">
+                <div class="book-card" data-category="philosophy">
+                    <h3>Mahabharat</h3>
+                    <div class="book-meta">Ancient Indian Epic</div>
+                    <div class="book-description">The great Indian epic exploring dharma, karma, and the complexities of human nature through the greatest war ever fought.</div>
+                    <span class="category-tag">Philosophy</span>
+                </div>
+
+                <div class="book-card" data-category="self-help">
+                    <h3>Atomic Habits</h3>
+                    <div class="book-meta">James Clear</div>
+                    <div class="book-description">Tiny changes, remarkable results. An easy and proven way to build good habits and break bad ones.</div>
+                    <span class="category-tag">Self-Help</span>
+                </div>
+
+                <div class="book-card" data-category="psychology">
+                    <h3>Don't Believe Everything You Think</h3>
+                    <div class="book-meta">Joseph Nguyen</div>
+                    <div class="book-description">Why your thinking is the beginning and end of suffering, and how to free yourself from destructive thought patterns.</div>
+                    <span class="category-tag">Psychology</span>
+                </div>
+
+                <div class="book-card" data-category="self-help">
+                    <h3>How to Win Friends & Influence People</h3>
+                    <div class="book-meta">Dale Carnegie</div>
+                    <div class="book-description">The timeless classic on human relations, teaching fundamental techniques for handling people and becoming a better leader.</div>
+                    <span class="category-tag">Self-Help</span>
+                </div>
+
+                <div class="book-card" data-category="finance">
+                    <h3>The Psychology of Money</h3>
+                    <div class="book-meta">Morgan Housel</div>
+                    <div class="book-description">Timeless lessons on wealth, greed, and happiness, exploring how people think about money and make financial decisions.</div>
+                    <span class="category-tag">Finance</span>
+                </div>
+
+                <div class="book-card" data-category="self-help">
+                    <h3>Get Epic Shit Done</h3>
+                    <div class="book-meta">Ankur Warikoo</div>
+                    <div class="book-description">Practical strategies for productivity and achieving your goals through effective action and mindset shifts.</div>
+                    <span class="category-tag">Self-Help</span>
+                </div>
+
+                <div class="book-card" data-category="spirituality">
+                    <h3>The Two Kingdoms</h3>
+                    <div class="book-meta">Lim Koi</div>
+                    <div class="book-description">Exploring the dual nature of existence and the balance between material and spiritual realms.</div>
+                    <span class="category-tag">Spirituality</span>
+                </div>
+
+                <div class="book-card" data-category="spirituality">
+                    <h3>The A to Z of Karma</h3>
+                    <div class="book-meta">AIR</div>
+                    <div class="book-description">A comprehensive guide to understanding the laws of karma and their impact on our lives and destiny.</div>
+                    <span class="category-tag">Spirituality</span>
+                </div>
+
+                <div class="book-card" data-category="spirituality">
+                    <h3>The Commandments of Detached Attachment</h3>
+                    <div class="book-meta">AIR</div>
+                    <div class="book-description">Learning the art of being present and engaged while maintaining spiritual freedom and emotional balance.</div>
+                    <span class="category-tag">Spirituality</span>
+                </div>
+
+                <div class="book-card" data-category="spirituality">
+                    <h3>God is Not God, God is SIP</h3>
+                    <div class="book-meta">AIR</div>
+                    <div class="book-description">Challenging conventional beliefs about divinity and exploring alternative perspectives on spirituality and consciousness.</div>
+                    <span class="category-tag">Spirituality</span>
+                </div>
+
+                <div class="book-card" data-category="psychology">
+                    <h3>Face Reading</h3>
+                    <div class="book-meta">Richard Webster</div>
+                    <div class="book-description">The ancient art of physiognomy - understanding personality, character, and emotions through facial features.</div>
+                    <span class="category-tag">Psychology</span>
+                </div>
+
+                <div class="book-card" data-category="psychology">
+                    <h3>The Art of Logical Thinking</h3>
+                    <div class="book-meta">William Walker Atkinson</div>
+                    <div class="book-description">Mastering the principles of reasoning, analysis, and research through systematic logical thinking methods.</div>
+                    <span class="category-tag">Psychology</span>
+                </div>
+
+                <div class="book-card" data-category="psychology">
+                    <h3>How to Read a Person Like a Book</h3>
+                    <div class="book-meta">Gerard I. Nierenberg</div>
+                    <div class="book-description">Decoding body language and non-verbal communication to understand what people are really thinking and feeling.</div>
+                    <span class="category-tag">Psychology</span>
+                </div>
+
+                <div class="book-card" data-category="psychology">
+                    <h3>Body Language</h3>
+                    <div class="book-meta">Allan Pease</div>
+                    <div class="book-description">Decoding non-verbal communication and mastering the art of reading people through their gestures and expressions.</div>
+                    <span class="category-tag">Psychology</span>
+                </div>
+
+                <div class="book-card" data-category="spirituality">
+                    <h3>Think Like a Monk</h3>
+                    <div class="book-meta">Jay Shetty</div>
+                    <div class="book-description">Ancient wisdom for modern living - finding purpose, letting go, and living with intention.</div>
+                    <span class="category-tag">Spirituality</span>
+                </div>
+
+                <div class="book-card" data-category="management">
+                    <h3>Time Management</h3>
+                    <div class="book-meta">Sudhir Dixit</div>
+                    <div class="book-description">Practical strategies for effective time utilization and productivity enhancement.</div>
+                    <span class="category-tag">Management</span>
+                </div>
+
+                <div class="book-card" data-category="psychology">
+                    <h3>Dark Psychology Secrets</h3>
+                    <div class="book-meta">Amy Brown</div>
+                    <div class="book-description">Understanding manipulation tactics, mind control techniques, and psychological influence.</div>
+                    <span class="category-tag">Psychology</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="section">
+            <h2>Research Projects</h2>
+            
+            <div class="content-block">
+                <div class="research-item">
+                    <h3>Ghost Research 2022 <span class="ghost-tag">Classified</span></h3>
+                    <div class="research-meta">2022 | Confidential</div>
+                    <p>Investigation into paranormal phenomena and unexplained activities documented across multiple locations. Analyzing patterns, electromagnetic disturbances, and anomalous recordings using advanced detection equipment and data analysis techniques.</p>
+                </div>
+
+                <div class="research-item">
+                    <h3>Children Behavioral (CB-02)</h3>
+                    <div class="research-meta">2023 | Ongoing</div>
+                    <p>Comprehensive study of behavioral patterns in children, analyzing developmental stages, social interactions, and psychological factors that influence child behavior and growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About This Collection</h2>
+            
+            <div class="content-block">
+                <div class="text-content">
+                    <p>This book collection reflects personal growth through philosophy, psychology, time management, and spiritual exploration. Each book represents a step in the journey of self-discovery.</p>
+                    <p>My research complements this pursuit by exploring mysteries beyond conventional understanding.</p>
+                </div>
+            </div>
+
+            <div class="divider">* * *</div>
+
+            <div class="content-block">
+                <h2>Collection Philosophy</h2>
+                <div class="text-content">
+                    <p>Curated for personal transformation - from ancient wisdom (Mahabharat) to modern psychology (Dark Psychology) and practical skills (Time Management).</p>
+                    <p>Each book bridges timeless truths with contemporary challenges for holistic development.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>The Legacy of Books Collection and Research (DRJ) © 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.section');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetSection = btn.dataset.section;
+                
+                // Update nav active state
+                navBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show target section
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(targetSection).classList.add('active');
+            });
+        });
+
+        // Book filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const bookCards = document.querySelectorAll('.book-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                bookCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
